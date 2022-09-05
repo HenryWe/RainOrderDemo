@@ -10,11 +10,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.example</groupId>
-	<artifactId>rain</artifactId>
+	<groupId>za.co</groupId>
+	<artifactId>curro</artifactId>
 	<version>0.0.1</version>
-	<name>rain</name>
-	<description>Demo project for Rain</description>
+	<name>JwtPOCDemo</name>
+	<description>Jwt POC Demo</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

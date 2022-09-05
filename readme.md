@@ -1,9 +1,4 @@
-#Rain Order Demo Application
-
-Description
-```text
-Task given by Rain to implement an order utilizing Java / SpringBoot  
-```
+#Jwt POC Demo Application
 
 ---
 ## End Points
@@ -11,15 +6,15 @@ Task given by Rain to implement an order utilizing Java / SpringBoot
 <table>
     <tr>
         <td>Acuator</td>
-        <td>https://127.0.0.1/rain/actuator</td>
+        <td>https://127.0.0.1/jwt/poc/actuator</td>
     </tr>
     <tr>
         <td>Swagger API</td>
-        <td>https://127.0.0.1/rain/swagger-ui/index.html</td>
+        <td>https://127.0.0.1/jwt/poc/swagger-ui/index.html</td>
     </tr>
     <tr>
         <td>Base URL</td>
-        <td>https://127.0.0.1/rain</td>
+        <td>https://127.0.0.1/jwt/poc</td>
     </tr>
 </table>
 
@@ -28,8 +23,8 @@ Task given by Rain to implement an order utilizing Java / SpringBoot
 
 > ###*Executed from CLI*
 >       package application - mvn clean compile test package 
->       Create Docker image - docker build -t rain:1.0.0 . 
->       instantiate Image   - docker run -d -p 443:443 rain:1.0.0
+>       Create Docker image - docker build -t jwt/poc:1.0.0 . 
+>       instantiate Image   - docker run -d -p 443:443 jwt/poc:1.0.0
 
 
 ---
@@ -46,7 +41,7 @@ Task given by Rain to implement an order utilizing Java / SpringBoot
 >        MediaType mediaType = MediaType.parse("application/json");
 >        RequestBody body = RequestBody.create(mediaType, "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin\"\r\n}");
 >        Request request = new Request.Builder()
->        .url("https://127.0.0.1/rain/authenticate")
+>        .url("https://127.0.0.1/jwt/poc/authenticate")
 >        .method("POST", body)
 >        .addHeader("Content-Type", "application/json")
 >        .build();
@@ -60,7 +55,7 @@ Task given by Rain to implement an order utilizing Java / SpringBoot
 >        MediaType mediaType = MediaType.parse("text/plain");
 >        RequestBody body = RequestBody.create(mediaType, "");
 >        Request request = new Request.Builder()
->        .url("https://127.0.0.1/rain/about")
+>        .url("https://127.0.0.1/jwt/poc/about")
 >        .method("GET", body)
 >        .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmb28iLCJleHAiOjE2NjI1MTE0OTksImlhdCI6MTY2MjI5NTQ5OX0.u4HY79LjN8HoYzkZO7YIPwZVPOC8vWsoS3gyk_Nr-F8")
 >        .build();
@@ -70,7 +65,7 @@ Task given by Rain to implement an order utilizing Java / SpringBoot
 ---
 ## Notes on Actuator access / implementation
 
-[Actuator Info End Point](https://127.0.0.1/rain/actuator)
+[Actuator Info End Point](https://127.0.0.1/jwt/poc/actuator)
 
 Usage:
 
@@ -79,7 +74,7 @@ Usage:
 ---
 ## Notes on Swagger access / implementation
 
-[SwaggerUI End Point](htts://127.0.0.1/rain/swagger-ui/index.html)
+[SwaggerUI End Point](htts://127.0.0.1/jwt/poc/swagger-ui/index.html)
 
 >##Imporat Info....
 > *Need to acquire authentication token via 'authenticate' endpoint
