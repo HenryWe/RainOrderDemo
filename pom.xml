@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.4</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.example</groupId>
+	<artifactId>rain</artifactId>
+	<version>0.0.1</version>
+	<name>rain</name>
+	<description>Demo project for Rain</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<spring-cloud.version>2020.0.2</spring-cloud.version>
+		<java.version>11</java.version>
+		<repositoryId>curro.nexus</repositoryId>
+	</properties>
+
+	<dependencies>
+
+		<!--  It uses HTTP endpoints to expose operational information about any running application.
+			  The main benefit of using this library is that we get health and monitoring metrics from
+			  production-ready applications
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- a Java specification for managing relational data in Java applications.
+			 It allows us to access and persist data between Java object/ class and
+			 relational database
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- starter that aggregates Spring Security-related dependencies together -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- It is an HTTP server and Servlet container that has the capability
+			 of serving static and dynamic content
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- provides a way to configure global settings that are not coupled
+			 with any application.
+			 Provide additional development-time features
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- in-memory databases with browser based console application -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Never write another getter or equals method again, with one annotation
+			 your class has a fully featured builder, Automate your logging variables,
+			 and much more.
+		-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- default inclusion when using "spring initializr" to provision
+		     usual plumbing
+		 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- To use Spring Security in your unit tests, you need to add
+			 spring-security-test to your Spring Boot project.
+		-->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- JWT ***************************************************
+		-->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+
+		<!-- ************************************************* -->
+		<!-- JSON API documentation for spring applications    -->
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-schema</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<!-- included as part of resttemplate config to override / disable ssl
+		     Not trusted as cert is not trusted
+		-->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.12</version>
+		</dependency>
+
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- download artifacts from this repo -->
+	<repositories>
+		<repository>
+
+			<id>${repositoryId}</id>
+			<name>curro</name>
+			<url>http://nexus.curro.co.za:8081/nexus/content/groups/public/</url>
+
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+
+		</repository>
+	</repositories>
+
+	<!-- ********************************************************************** -->
+	<!-- To enable  publishing of project -->
+
+	<distributionManagement>
+
+		<!-- Publish the versioned releases here -->
+		<repository>
+			<id>${repositoryId}</id>
+			<name>curro nexus</name>
+			<url>http://nexus.curro.co.za:8081/nexus/content/repositories/releases</url>
+		</repository>
+
+		<!-- Publish the versioned releases here -->
+		<snapshotRepository>
+			<id>${repositoryId}</id>
+			<name>curro nexus</name>
+			<url>http://nexus.curro.co.za:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+
+	</distributionManagement>
+
+</project>
