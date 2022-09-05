@@ -55,16 +55,16 @@ Task given by Rain to implement an order utilizing Java / SpringBoot
 
 > ###*Postman request Using Token in request*
 >```java
->OkHttpClient client = new OkHttpClient().newBuilder()
->        .build();
->        MediaType mediaType = MediaType.parse("text/plain");
->        RequestBody body = RequestBody.create(mediaType, "");
->        Request request = new Request.Builder()
->        .url("https://127.0.0.1/rain/about")
->        .method("GET", body)
->        .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmb28iLCJleHAiOjE2NjI1MTE0OTksImlhdCI6MTY2MjI5NTQ5OX0.u4HY79LjN8HoYzkZO7YIPwZVPOC8vWsoS3gyk_Nr-F8")
->        .build();
->        Response response = client.newCall(request).execute();
+>       OkHttpClient client = new OkHttpClient().newBuilder()
+  .build();
+>       MediaType mediaType = MediaType.parse("text/plain");
+>       RequestBody body = RequestBody.create(mediaType, "");
+>       Request request = new Request.Builder()
+>       .url("https://127.0.0.1/rain/order/item/list")
+>       .method("GET", body)
+>       .addHeader("Authorization", "Bearer >eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY2MjU4NTYyOSwiaWF0IjoxNjYyMzY5NjI5fQ.06ilshTKcynIx3CG6DN1CYmVT7V5vtFqOPifS>v36YoA")
+>       .build();
+>       Response response = client.newCall(request).execute();
 >```
 
 ---
