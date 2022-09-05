@@ -26,11 +26,12 @@ Task given by Rain to implement an order utilizing Java / SpringBoot
 ---
 ## Howto Build / Run Application
 
-> ###*Executed from CLI*
->       package application - mvn clean compile test package 
->       Create Docker image - docker build -t rain:1.0.0 . 
->       instantiate Image   - docker run -d -p 443:443 rain:1.0.0
-
+###*Executed from CLI*
+```
+package application - mvn clean compile test package 
+Create Docker image - docker build -t rain:1.0.0 . 
+instantiate Image   - docker run -d -p 443:443 rain:1.0.0
+```
 
 ---
 ##Steps to follow access API Enpoints
